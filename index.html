@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- <script src="script.js"></script> -->
     <script src="https://www.google.com/recaptcha/api.js"></script>
-    <!-- Need to change the following script to generated script from Salesforce -->
     <script>
         function timestamp() 
         { 
@@ -20,7 +18,7 @@
         } 
         setInterval(timestamp, 500); 
     </script>
-    <!-- Skript which control if user checked reCaptcha -->
+    <!-- Script which controls if user checked reCaptcha -->
     <script>
         let captchaChecked = false;
 
@@ -38,18 +36,19 @@
 </head>
 <body>
     <h1>Web Form</h1>
-    
-    <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Ddt000000oQ5n" onsubmit="beforeSubmit(event)" method="POST">
+    <!-- Need to change orgId -->
+    <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DVe000001hf2X" onsubmit="beforeSubmit(event)" method="POST">
     
         <h2>  
             Fill in your details below and one of our Regional Managers will call you back.
         </h2>
-        <input type=hidden name='captcha_settings' value='{"keyname":"GitHub","fallback":"true","orgId":"00Ddt000000oQ5n","ts":""}'>
-        <input type=hidden name="oid" value="00Ddt000000oQ5n">
-        <input type=hidden name="retURL" value="https://stepantitvikt.github.io/SalesforceWeb/thankyou.html">
+        <!-- Need to change keyname and orgId-->
+        <input type=hidden name='captcha_settings' value='{"keyname":"UAT_reCaptcha_Key_Pair","fallback":"true","orgId":"00DVe000001hf2X","ts":""}'>
+        <!-- Need to change keyname and oid-->
+        <input type=hidden name="oid" value="00DVe000001hf2X">
+        <!-- Need to set URL for ThankYou Page-->
+        <input type=hidden name="retURL" value="https://stepantitvikt.github.io/WebToLeadUAT/pagethankyou.html">
         <input type=hidden name="lead_source" id="lead_source" value="Website" type="text">
-        <!-- <input type=hidden name="company" id="company" value="Default" type="text"> -->
-        <!-- <input type=hidden name="Region__c" id="Region__c" value="001dt000004hLA9AAM">   -->
 
         <label for="first_name">First Name *</label><input required id="first_name" name="first_name" size="20" type="text" />
         
@@ -58,25 +57,9 @@
         <label for="email">Email *</label><input required id="email" name="email" size="20" type="email" />
         
         <label for="mobile">Mobile</label><input id="mobile" name="mobile" size="20" type="tel" />
-        
-        <!-- Region:<input  id="00Ndt000000NnKz" name="00Ndt000000NnKz" size="20" type="text" /> -->
-        
-        <!-- <label for="region">Region</label><input list="regions" name="00Ndt000000NnKz" id="00Ndt000000NnKz" > -->
-        <!-- <label for="region">Region</label><input list="regions" name="Region__c" id="Region__c" >
-        <datalist id="regions">
-            <option value="Eastern Cape">
-            <option value="Free State & Northern Cape">
-            <option value="Greater Pretoria">
-            <option value="Johannesburg & North West">
-            <option value="Johannesburg & South East">
-            <option value="KwaZulu Natal">
-            <option value="Western Cape">
-        </datalist>  -->
 
         <label for="Region__c">Region *</label>
         <select required id="Region__c" name="Region__c">
-            <!-- <option value="001dt000004hLA9AAM">Eastern Cape</option>
-            <option value="001dt000004hLABAA2">Greater Pretoria</option> -->
                 <option value="Eastern Cape"> Eastern Cape </option>
                 <option value="Free State & Northern Cape"> Free State & Northern Cape </option>
                 <option value="Greater Pretoria"> Greater Pretoria </option>
@@ -85,8 +68,10 @@
                 <option value="KwaZulu Natal"> KwaZulu Natal </option>
                 <option value="Western Cape"> Western Cape </option>
         </select>
+        
+        <!-- Need to change data-callback-->
+        <div class="g-recaptcha" data-callback="captchaSuccess" data-sitekey="6LcC3L0qAAAAANgi1KFDFpQqeKwANeDJY-kwrbQY"></div><br>
 
-        <div class="g-recaptcha" data-callback="captchaSuccess" data-sitekey="6LdT2bgqAAAAAG45Yco-wIXslLwPLCXS0mJ0wnAf"></div><br>
         <input type="submit" name="submit">
     
     </form>
