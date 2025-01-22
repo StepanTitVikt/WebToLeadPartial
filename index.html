@@ -37,15 +37,15 @@
 <body>
     <h1>Web Form</h1>
     <!-- Need to change orgId -->
-    <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DVe000001hf2X" onsubmit="beforeSubmit(event)" method="POST">
+    <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DVe000000Mbtn" onsubmit="beforeSubmit(event)" method="POST">
     
         <h2>  
             Fill in your details below and one of our Regional Managers will call you back.
         </h2>
         <!-- Need to change keyname and orgId-->
-        <input type=hidden name='captcha_settings' value='{"keyname":"UAT_reCaptcha_Key_Pair","fallback":"true","orgId":"00DVe000001hf2X","ts":""}'>
+        <input type=hidden name='captcha_settings' value='{"keyname":"Partial_reCaptcha_Key_Pair","fallback":"true","orgId":"00DVe000000Mbtn","ts":""}'>
         <!-- Need to change keyname and oid-->
-        <input type=hidden name="oid" value="00DVe000001hf2X">
+        <input type=hidden name="oid" value="00DVe000000Mbtn">
         <!-- Need to set URL for ThankYou Page-->
         <input type=hidden name="retURL" value="https://stepantitvikt.github.io/WebToLeadUAT/pagethankyou.html">
         <input type=hidden name="lead_source" id="lead_source" value="Website" type="text">
